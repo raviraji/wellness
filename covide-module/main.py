@@ -137,7 +137,7 @@ class Backend(QObject):
             companyid = int(config['settings']['companyid'])
             #plantid = int(config['settings']['plantid'])
             portal = config['settings']['portal']
-            url = "https://{}/api/{}/central_dashboard/get_auth_token/".format(portal, companyid)
+            url = "{}/api/{}/central_dashboard/get_auth_token/".format(portal, companyid)
 
             statusDict = {
                 'username': config['settings']['username'],
@@ -183,7 +183,7 @@ class Backend(QObject):
         token = self.getToken()
         
         print("this is token",token)
-        url = str(config['settings']['url']) + "/1/1/employee_wellness/table_data"
+        url = str(config['settings']['url'])+'/api/'+cid+'/'+pid+'/'+'employee_wellness/table_data'
         
         headers = {}
         headers['Authorization'] = 'Bearer ' + str(token)
